@@ -40,4 +40,12 @@ function endGame() {
     var results = document.getElementById('results');
     results.setAttribute("style", "display: block;")
     results.textContent = "You scored " + counter + '/4';
+    var userName = window.prompt("Enter Your name");
+    window.localStorage.setItem('username', userName);
+    window.localStorage.setItem('score', counter+'/4');
+    displayScore();
+}
+function displayScore(){
+    timer.innerText = 'Recent Score'
+    document.getElementById('results').innerText = window.localStorage.getItem('username') + ' ' + window.localStorage.getItem('score');
 }
